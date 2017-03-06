@@ -37,13 +37,29 @@ public class BusTest{
   }
 
 
-@Test
-public void picksUpPassenger(){
-  for (int i = 0; i < 20; i++) {
-    bus.picksUp(passenger);
+  @Test
+  public void picksUpPassenger(){
+    for (int i = 0; i < 20; i++) {
+      bus.picksUp(passenger);
+    }
+    assertEquals(20, bus.numberOfPassengers());
   }
-  assertEquals(20, bus.numberOfPassengers());
-}
+
+  @Test
+  public void dropsOffPassenger(){
+
+    for (int i = 0; i < 20; i++) {
+      bus.picksUp(passenger);
+    }
+
+    for (int i = 0; i < 8; i++) {
+      bus.dropsOff(passenger);
+    }
+    
+    assertEquals(12, bus.numberOfPassengers());
+  }
+
+
 
 
 }

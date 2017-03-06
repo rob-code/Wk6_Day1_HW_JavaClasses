@@ -45,10 +45,17 @@ public class Bus{
       return;
     }
     int index = numberOfPassengers();
-    seats[index] = passenger; 
+    this.seats[index] = passenger; 
   }
 
-
+  public void dropsOff(Passenger passenger){
+    if (numberOfPassengers() == 0) {
+      return;
+    }
+    int index = numberOfPassengers();
+    System.out.println("index is = " + index);
+    this.seats[index-1] = null;
+  }
 
 
 
