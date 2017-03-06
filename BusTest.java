@@ -47,15 +47,12 @@ public class BusTest{
 
   @Test
   public void dropsOffPassenger(){
-
     for (int i = 0; i < 20; i++) {
       bus.picksUp(passenger);
     }
-
     for (int i = 0; i < 8; i++) {
       bus.dropsOff(passenger);
     }
-    
     assertEquals(12, bus.numberOfPassengers());
   }
 
