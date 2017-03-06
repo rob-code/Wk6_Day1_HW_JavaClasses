@@ -21,8 +21,6 @@ public class Bus{
   }
 
   public int numberOfSeats(){
-    //return this.numberOfSeats;
-    System.out.println("number of seats is = " + this.seats.length);
     return seats.length;
   }
 

@@ -30,7 +30,7 @@ class BusStop{
 
   public void joinQueue(Passenger passenger){
     if (queueIsTooLong()){
-      System.out.println("The queue's too long - I'm not waiting, I'm going to walk");
+      System.out.println("The queue's too long - I'm not waiting, I'm going to walk!");
       return;
     }
     int index = lengthOfQueue();
@@ -42,13 +42,7 @@ class BusStop{
       return;
     }
     int index = lengthOfQueue();
-    System.out.println("length of queue = " + index);
     this.queue[index-1] = null;
   }
-
-
-
-
-
 
 }
