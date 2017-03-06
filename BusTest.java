@@ -31,13 +31,18 @@ public class BusTest{
     assertEquals(0, bus.numberOfPassengers());
   }
 
+  @Test
+  public void isBusFullAtStart(){
+    assertEquals(false, bus.isBusFull());
+  }
+
+
 @Test
 public void picksUpPassenger(){
-  for (int i = 0; i < 20; i++) { // initial value, condition and increment
+  for (int i = 0; i < 20; i++) {
     bus.picksUp(passenger);
   }
-  assertEquals(20, bus.getNumberOfPassengers());
-
+  assertEquals(20, bus.numberOfPassengers());
 }
 
 

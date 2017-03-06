@@ -5,8 +5,6 @@ public class Bus{
   private int numberOfSeats;
   private Passenger[] seats;
 
-
-
   public Bus(int number, String destination, int numberOfSeats){
     this.number = number;
     this.destination = destination;
@@ -42,15 +40,13 @@ public class Bus{
     return numberOfPassengers() == seats.length;
   }
 
-// public void picksUp(Passenger passenger){
-//   if ( isBellyFull() ) {
-//     return;
-//   }
-//   int index = foodCount();
-//   belly[index] = salmon; 
-
-
-// }
+  public void picksUp(Passenger passenger){
+    if ( isBusFull() ) {
+      return;
+    }
+    int index = numberOfPassengers();
+    seats[index] = passenger; 
+  }
 
 
 
