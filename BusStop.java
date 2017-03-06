@@ -1,28 +1,22 @@
 class BusStop{
 
   private String location;
-  private Passenger[] people;
+  private Passenger[] queue;
+  private int queueExasperationLength;
 
-  public BusStop(String location){
+  public BusStop(String location, int queueExasperationLength){
     this.location = location;
-    this.people = new Passenger[15];
+    this.queueExasperationLength = queueExasperationLength;
+    this.queue = new Passenger[this.queueExasperationLength];
   }
 
   public String location(){
     return this.location;
   }
 
-
-
-  // public int lengthOfQueue(){
-  //   return people.length;
-  // } no...thats wrong as the people in the queue will queue up tosome maximum and will stop when it reches an uaceptable level
-
-
-
-
+  public int lengthOfQueue(){
     int count = 0;
-    for (Passenger passenger : seats) {
+    for (Passenger passenger : queue) {
       if (passenger != null){
         count++;
       }
@@ -30,19 +24,27 @@ class BusStop{
     return count;
   }
 
+  public boolean queueIsTooLong(){
+    return this.queueExasperationLength == lengthOfQueue(); 
+  }
 
-public void personGetsOnBus(){
-if (lengthOfQueue == 0) {
-  return;
-}
-int index = lengthOfQueue();
-people[index] = null;
+  public void joinQueue(Passenger passenger){
+    if (queueIsTooLong()){
+      System.out.println("The queue's too long - I'm not waiting, I'm going to walk");
+      return;
+    }
+    int index = lengthOfQueue();
+    this.queue[index] = passenger;
+  }
 
-
-}
-
-
-
+  public void getOnBus(Passenger passenger){
+    if (lengthOfQueue() == 0){
+      return;
+    }
+    int index = lengthOfQueue();
+    System.out.println("length of queue = " + index);
+    this.queue[index-1] = null;
+  }
 
 
 

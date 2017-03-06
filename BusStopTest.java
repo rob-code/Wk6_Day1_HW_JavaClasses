@@ -19,18 +19,34 @@ public class BusStopTest {
 
   @Test
   public void lengthOfQueue(){
+    assertEquals(0, busStop.lengthOfQueue());
+  }
+
+
+  @Test
+  public void isQueueTooLong(){
+    assertEquals(false, busStop.queueIsTooLong());
+  }
+
+  @Test
+  public void hasPersonJoinedQueue(){
+    for (int i = 0; i < 22; i++) {
+      busStop.joinQueue(passenger);
+    }
     assertEquals(16, busStop.lengthOfQueue());
   }
 
-@Test
-public void personGetsOnBus(){
-busStop.personGetsOnBus();
-assertEquals(15, busStop.lengthOfQueue());
+  @Test
+  public void queueMemberGetsOnBus(){
+    for (int i = 0; i < 22; i++) {
+      busStop.joinQueue(passenger);
+    }
 
-}
-
-
-
+    for (int i = 0; i < 6; i++) {
+      busStop.getOnBus(passenger);
+    }
+    assertEquals(10, busStop.lengthOfQueue());
+  }
 
 }
 
